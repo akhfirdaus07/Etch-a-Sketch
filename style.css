@@ -6,17 +6,17 @@ body {
 h1{
     text-align: center;
     font-size: 50px;
-    margin-bottom: 50px;
 }
 
 .container{
     display: flex;
     justify-content: center;
     align-content: stretch;
-    height: 400px;
+    height: 380px;
     padding: 10px;
     margin-left: 100px;
     margin-right: 100px;
+
 }
 
 .grid{
@@ -34,10 +34,12 @@ h1{
 }
 
 footer{
+    margin-top: 10px;
     font-size: smaller;
     display: flex;
     justify-content: center;
     align-items: center;
     content: "\f09b";
-    gap:10px
+    gap:10px;
+
 }
