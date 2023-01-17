@@ -10,21 +10,34 @@ input.addEventListener("input", inputLabel);
 
 function inputLabel(){
     for (let label of labels){
-        label.textContent=this.value;
+        label.textContent=input.value;
     }
 }
-
-// Make Grid
 const grid = document.querySelector(".grid");
-input.addEventListener("input", makeGrid(input.value, input.value));
+makeGrid(input.value, input.value);
 
-function makeGrid(rows, cols) {
+
+console.log(input)
+// Make Grid
+
+input.addEventListener("change", makeGrid) 
+
+function makeGrid(rows, cols){
+    rows= input.value;
+    cols= input.value;
+    console.log(grid.firstChild)
+    while (grid.firstChild) {
+        grid.removeChild(grid.lastChild);
+    }
+    console.log(grid.firstChild)
     grid.style.setProperty('--grid-rows', rows);
     grid.style.setProperty('--grid-cols', cols);
+ 
     for (i = 0; i < (rows * cols); i++) {
         let cell = document.createElement("div");       
         grid.appendChild(cell).className = "grid-item";
     };
+    console.log(grid.firstChild)
 };
 
 
@@ -49,8 +62,8 @@ function clearActive(){
 const blackButton=document.querySelector(".black-ink");
 blackButton.addEventListener("click", addMouseOver);
 
-const gridItems=document.querySelectorAll(".grid-item");
 function addMouseOver(){
+    let gridItems=document.querySelectorAll(".grid-item");
     for (let gridItem of gridItems){
         gridItem.addEventListener("mouseover", gridBlack);
         gridItem.removeEventListener("mouseover", gridErase);
@@ -66,6 +79,7 @@ const rainbowButton=document.querySelector(".rainbow-ink");
 rainbowButton.addEventListener("click", addMouseOverRainbow)
 
 function addMouseOverRainbow(){
+    let gridItems=document.querySelectorAll(".grid-item");
     for (let gridItem of gridItems){
         gridItem.removeEventListener("mouseover", gridBlack);
         gridItem.removeEventListener("mouseover", gridErase);
@@ -88,6 +102,7 @@ const eraserButton=document.querySelector(".eraser");
 eraserButton.addEventListener("click", eraser);
 
 function eraser(){
+    let gridItems=document.querySelectorAll(".grid-item");
     for (let gridItem of gridItems){
         gridItem.addEventListener("mouseover", gridErase)
         gridItem.removeEventListener("mouseover", gridBlack)
@@ -103,6 +118,7 @@ function gridErase() {
 const clearButton=document.querySelector(".clear");
 clearButton.addEventListener("click", clearGrid)
 function clearGrid(){
+    let gridItems=document.querySelectorAll(".grid-item");
     for(let gridItem of gridItems){
         gridItem.removeEventListener("mouseover", gridBlack);
         gridItem.removeEventListener("mouseover", gridRainbow);
