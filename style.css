@@ -39,7 +39,7 @@ h1{
   text-align: center;
 }
 
-.grid-black{
+.grid-item.grid-black{
     background-color: black;
 }
 
