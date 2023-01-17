@@ -1,5 +1,23 @@
+// Input range function
+const labels=document.querySelectorAll("#label");
+const input=document.querySelector("#gridRange");
+
+for (let label of labels){
+    label.textContent=input.value;
+}//default value for label
+
+input.addEventListener("input", inputLabel);
+
+function inputLabel(){
+    for (let label of labels){
+        label.textContent=this.value;
+    }
+}
+
 // Make Grid
 const grid = document.querySelector(".grid");
+input.addEventListener("input", makeGrid(input.value, input.value));
+
 function makeGrid(rows, cols) {
     grid.style.setProperty('--grid-rows', rows);
     grid.style.setProperty('--grid-cols', cols);
@@ -8,9 +26,9 @@ function makeGrid(rows, cols) {
         grid.appendChild(cell).className = "grid-item";
     };
 };
-makeGrid(64, 64);
 
-const gridItems=document.querySelectorAll(".grid-item");
+
+
 
 // Styling the button when clicked
 const buttons=document.querySelectorAll(".button");
@@ -31,6 +49,7 @@ function clearActive(){
 const blackButton=document.querySelector(".black-ink");
 blackButton.addEventListener("click", addMouseOver);
 
+const gridItems=document.querySelectorAll(".grid-item");
 function addMouseOver(){
     for (let gridItem of gridItems){
         gridItem.addEventListener("mouseover", gridBlack);
