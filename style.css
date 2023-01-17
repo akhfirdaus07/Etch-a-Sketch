@@ -70,6 +70,11 @@ h1{
     box-shadow: 0 0 1rem #ffc600;
 }
 
+p{  
+    margin: 0;
+    text-align: center;
+}
+
 footer{
     margin-top: 5px;
     font-size: smaller;
@@ -83,7 +88,7 @@ footer{
 
 input[type=range] {
     height: 26px;
-    margin: 10px 0;
+    margin: 0;
     width: 10rem;
   }
   input[type=range]:focus {
