@@ -76,7 +76,8 @@ function eraser(){
     }
 }
 function gridErase() {
-    this.classList.remove("grid-black")   
+    this.classList.remove("grid-black");
+    this.style.backgroundColor="";   
 }
 
 // Clear button function
@@ -85,6 +86,8 @@ clearButton.addEventListener("click", clearGrid)
 function clearGrid(){
     for(let gridItem of gridItems){
         gridItem.removeEventListener("mouseover", gridBlack);
+        gridItem.removeEventListener("mouseover", gridRainbow);
         gridItem.classList.remove("grid-black");
+        gridItem.style.backgroundColor="";
     }
 };
