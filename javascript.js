@@ -20,3 +20,22 @@ function gridBlack() {
 for (let gridItem of gridItems){
     gridItem.addEventListener("mouseover", gridBlack)
 }
+
+const clearButton=document.querySelector(".clear");
+
+const buttons=document.querySelectorAll(".button");
+
+for(const button of buttons){
+    button.addEventListener("click", toggleActive)
+}
+
+function toggleActive(){
+    clearActive();
+    this.classList.add("active");
+}
+
+function clearActive(){
+    for(const button of buttons){
+        button.classList.remove("active");
+    }
+}
