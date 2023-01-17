@@ -31,6 +31,20 @@ function clearGrid(){
     }
 }
 
+const eraserButton=document.querySelector(".eraser");
+
+eraserButton.addEventListener("click", eraser);
+
+function eraser(){
+    for (let gridItem of gridItems){
+        gridItem.addEventListener("mouseover", gridErase)
+    }
+}
+
+function gridErase() {
+    this.classList.remove("grid-black")   
+}
+
 const buttons=document.querySelectorAll(".button");
 
 for(const button of buttons){
