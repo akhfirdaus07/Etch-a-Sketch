@@ -23,6 +23,14 @@ for (let gridItem of gridItems){
 
 const clearButton=document.querySelector(".clear");
 
+clearButton.addEventListener("click", clearGrid)
+
+function clearGrid(){
+    for(let gridItem of gridItems){
+        gridItem.classList.remove("grid-black")
+    }
+}
+
 const buttons=document.querySelectorAll(".button");
 
 for(const button of buttons){
