@@ -13,13 +13,21 @@ makeGrid(64, 64);
 
 const gridItems=document.querySelectorAll(".grid-item");
 
-function gridBlack() {
-    this.classList.add("grid-black")   
+const blackButton=document.querySelector(".black-ink");
+
+blackButton.addEventListener("click", addMouseOver)
+
+function addMouseOver(){
+    for (let gridItem of gridItems){
+        gridItem.addEventListener("mouseover", gridBlack);
+    }
 }
 
-for (let gridItem of gridItems){
-    gridItem.addEventListener("mouseover", gridBlack)
+function gridBlack() {
+    this.classList.add("grid-black");
 }
+
+
 
 const clearButton=document.querySelector(".clear");
 
