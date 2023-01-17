@@ -12,9 +12,6 @@ makeGrid(64, 64);
 
 const gridItems=document.querySelectorAll(".grid-item");
 
-const rainbowButton=document.querySelector(".rainbow-ink");
-
-
 // Styling the button when clicked
 const buttons=document.querySelectorAll(".button");
 for(const button of buttons){
@@ -30,9 +27,6 @@ function clearActive(){
     }
 };
 
-
-
-
 // Black button function
 const blackButton=document.querySelector(".black-ink");
 blackButton.addEventListener("click", addMouseOver);
@@ -41,12 +35,34 @@ function addMouseOver(){
     for (let gridItem of gridItems){
         gridItem.addEventListener("mouseover", gridBlack);
         gridItem.removeEventListener("mouseover", gridErase);
+        gridItem.removeEventListener("mouseover", gridRainbow);
     }
 }
 function gridBlack() {
     this.classList.add("grid-black");
 }
 
+// Rainbow button function
+const rainbowButton=document.querySelector(".rainbow-ink");
+rainbowButton.addEventListener("click", addMouseOverRainbow)
+
+function addMouseOverRainbow(){
+    for (let gridItem of gridItems){
+        gridItem.removeEventListener("mouseover", gridBlack);
+        gridItem.removeEventListener("mouseover", gridErase);
+        gridItem.addEventListener("mouseover", gridRainbow);
+    }
+}
+function gridRainbow(){
+    this.style.backgroundColor=randomColor();
+}
+function randomColor() {
+    let color = [];
+        for (let i = 0; i < 3; i++) {
+        color.push(Math.floor(Math.random() * 256));
+    }
+    return 'rgb(' + color.join(', ') + ')';
+} 
 
 // Eraser button function
 const eraserButton=document.querySelector(".eraser");
@@ -56,6 +72,7 @@ function eraser(){
     for (let gridItem of gridItems){
         gridItem.addEventListener("mouseover", gridErase)
         gridItem.removeEventListener("mouseover", gridBlack)
+        gridItem.removeEventListener("mouseover", gridRainbow)
     }
 }
 function gridErase() {
