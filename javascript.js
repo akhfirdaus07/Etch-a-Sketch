@@ -17,19 +17,18 @@ const grid = document.querySelector(".grid");
 makeGrid(input.value, input.value);
 
 
-console.log(input)
-// Make Grid
 
+// Make Grid
 input.addEventListener("change", makeGrid) 
 
 function makeGrid(rows, cols){
     rows= input.value;
     cols= input.value;
-    console.log(grid.firstChild)
+    
     while (grid.firstChild) {
         grid.removeChild(grid.lastChild);
     }
-    console.log(grid.firstChild)
+    
     grid.style.setProperty('--grid-rows', rows);
     grid.style.setProperty('--grid-cols', cols);
  
@@ -37,7 +36,7 @@ function makeGrid(rows, cols){
         let cell = document.createElement("div");       
         grid.appendChild(cell).className = "grid-item";
     };
-    console.log(grid.firstChild)
+    
 };
 
 
